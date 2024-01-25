@@ -181,7 +181,7 @@ debuginfo_eip(uintptr_t addr, struct Eipdebuginfo *info)
 	//	which one.
 	// Your code here.
 	stab_binsearch(stabs, &lline, &rline, N_SLINE, addr);
-	if(lline != rline) {
+	if(rline == (lline - 1)) {
 		return -1;
 	}
 	info->eip_line = stabs[lline].n_desc;
